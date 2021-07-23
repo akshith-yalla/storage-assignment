@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"  >
+        <meta name="author" content="Akshith Reddy Yalla">
+        <title>Storage Assignment</title>
+    </head>
+    <body>
+        <h2>Application Storage Counts</h2>
+        <span id='localValue'></span>
+        <span id="sessionValue"></span>
+        <button onclick="incrementCount()">Increment Count</button>
+        <script>
+            window.localStorage.clear()
+            window.sessionStorage.clear()
+            var count = 0;
+            var localValue = localStorage.getItem('Local Score');
+            var sessionValue = sessionStorage.getItem('Session Score');
+
+            document.getElementById('localValue').innerText = 'Local Score = '+localValue  
+            document.getElementById('sessionValue').innerText = "Session Score = "+sessionValue     
+
+            function incrementCount(){
+                localStorage.setItem('Local Score', count)
+                var localValue = localStorage.getItem('Local Score');
+                document.getElementById('localValue').innerText = "Local Score = "+localValue;
+
+                sessionStorage.setItem('Session Score', count)
+                var sessionValue = sessionStorage.getItem('Session Score');
+                document.getElementById('sessionValue').innerText = "Session Score = "+sessionValue;
+                count++;
+                
+            }
+
+        </script>
+    </body>
+</html>
